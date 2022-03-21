@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <title>Tweet Finder</title>
+</head>
+<body>
+<div class="container">
+	<h1>Tweet Finder</h1>
+    <span>Tweet Finder lets you find a tweet from a screenshot. Simply upload a screenshot of a tweet
+    and you'll be redirected to it.
+<h5>Things to note:</h5>
+<ul>
+<li>First of all, this will only work for tweets that are less than 7 days old. This is due to me only having restricted access to Twitter's archives.</li>
+<li>It's slow. Painfully slow. I'm talking 15+ seconds (though it may be faster than that if you're closer to the server where it's hosted, which is in the US). The reason why it's so slow is simple: the optical character recognition is really designed to work with a GPU. With a GPU this would be significantly faster. But sadly deploying a web app like this in an environment with access with a GPU is not exactly affordable. So it'll just have to be slow.</li>
+<li>This is a work in progress. As of right now, the app works fairly well. But it is far from perfectly reliable, especially for more "complex" situations like retweets or tweets that consist solely of emojis. So this is something I will keep working on.
+</ul>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    <label for="upload">Choose a file to upload...</label>
+  <input id="upload" type="file" id="image" name="image" value="Choose a file to upload...">
+  <input type="submit" value="Go to tweet">
+</form>
+ <figure>
+         <img src="{{url_for('static', filename='example_img.png')}}" alt="example image">
+  <figcaption>Example of a good tweet screenshot (although you can't use this screenshot to test the app because it is too old)</figcaption>
+</figure>
+
+    <footer>by <a href="https://linkedin.com/in/kevin-lux">Kevin Lux</a></footer>
+</div>
+</body>
+</html>
